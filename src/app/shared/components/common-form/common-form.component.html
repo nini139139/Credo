@@ -1,0 +1,63 @@
+<div class="full-container ">
+  <mat-dialog-content class="mat-typography">
+    <form [formGroup]="form" id="editForm" class="registration_page" (ngSubmit)="saveForm()">
+      <mat-form-field *ngIf="false">
+        <mat-label>id</mat-label>
+        <input type="number" matInput placeholder="id" formControlName="id" value="{{loanModel?.id}}" />
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>სესხის ტიპი </mat-label>
+        <select matNativeControl formControlName="loanTypeId">
+          <option class='option' *ngFor='let loanTypes of loanTypes' [value]="loanTypes.id">{{loanTypes.name}}
+          </option>
+        </select>
+        <mat-error>გთხოვთ აირჩიოთ სესხის ტიპი</mat-error>
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput [matDatepicker]="picker" placeholder="დაწყების თარიღი" formControlName="startDate"
+          [value]="loanModel?.startDate" />
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+        <mat-error>დაწყების თარიღი სავალდებულოა</mat-error>
+      </mat-form-field>
+
+      <mat-form-field>
+        <input matInput [matDatepicker]="pickerEnd" placeholder="დარულების თარიღი" formControlName="endDate"
+          [value]="loanModel?.endDate" />
+        <mat-datepicker-toggle matSuffix [for]="pickerEnd"></mat-datepicker-toggle>
+        <mat-datepicker #pickerEnd></mat-datepicker>
+        <mat-error>დასრულების თარიღი სავალდებულოა</mat-error>
+      </mat-form-field>
+      <mat-form-field>
+        <input type="number" matInput placeholder="თანხა" formControlName="amount" value="{{loanModel?.amount}}" />
+        <mat-error>თანხა სავალდებულოა</mat-error>
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>ვალუტა </mat-label>
+        <select matNativeControl formControlName="valuta">
+          <option class='option'></option>
+          <option class='option' *ngFor='let currency of currencies' [value]="currency.id">
+            {{currency.name}}</option>
+        </select>
+        <mat-error>გთხოვთ აირჩიოთ სესხის ტიპი</mat-error>
+      </mat-form-field>
+
+      <div class="btns">
+        <button class="btn btn-primary addBtn" name="save" form="editForm" type="submit" [disabled]="isSaveDisabled"
+          *ngIf="!isSaveHide" matTooltip="შენახვა">
+          <mat-icon>save</mat-icon>
+        </button>
+        <button class="btn btn-primary addBtn" name="sent" type="submit" [disabled]="action == 'createNew'"
+          *ngIf="!isSentHide" matTooltip="გაგზავნა">
+          <mat-icon>send</mat-icon>
+        </button>
+        <button class="btn btn-primary addBtn" name="approve" form="editForm" type="submit" *ngIf="!isApprove"
+          matTooltip="დამტკიცება">
+          <mat-icon>done</mat-icon>
+        </button>
+        <button class="btn btn-primary addBtn" name="rejected" type="submit" *ngIf="!isCancel" matTooltip="უარყოფა">
+          <mat-icon>cancel</mat-icon>
+        </button>
+      </div>
+    </form>
+  </mat-dialog-content>

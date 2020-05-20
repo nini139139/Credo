@@ -1,0 +1,30 @@
+<div class="container">
+  <div class="buttons-section" *ngIf="loggedIn() ">
+    <a mat-raised-button [routerLink]="['/loans']"><span>სესხები</span></a>
+  </div>
+  <h1 *ngIf="!loggedIn() ">Credo Vacancy</h1>
+  <form *ngIf=" !loggedIn()" #loginForm="ngForm" (ngSubmit)="Login()">
+    <div class="form-group">
+      <label for="role">როლი</label>
+      <select class="form-control form-control-sm" id="role" name="roleId" required ngModel>
+        <option *ngFor="let role of roles" [value]='role.id'>{{role.name}}</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="exampleInputEmail1">მომხმარებელი</label>
+      <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+        placeholder="მომხმარებელი" name="userName" required ngModel>
+    </div>
+    <div class="form-group">
+      <label for="exampleInputPassword1">პაროლი</label>
+      <input type="password" class="form-control" id="exampleInputPassword1" placeholder="პაროლი" name="password"
+        required ngModel>
+    </div>
+    <div class="form-group">
+      <p style="color: red">{{errorMessage}}</p>
+    </div>
+    <button [disabled]="!loginForm.valid" type="submit" class="btn btn-success">შესვლა</button>
+    <a mat-raised-button [routerLink]="['/registration']"><span>რეგისტრაცია</span></a>
+  </form>
+
+</div>

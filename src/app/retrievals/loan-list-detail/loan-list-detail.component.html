@@ -1,0 +1,33 @@
+<div class="full-container center">
+
+  <ng-container *ngIf="!showEdit && addLoanBtn">
+    <button mat-raised-button (click)="toggleAdd('')" id="bt">
+      <mat-icon *ngIf="showBtn">add</mat-icon>
+      <mat-icon *ngIf="!showBtn" style="color:brown;">clear</mat-icon>
+    </button>
+  </ng-container>
+
+  <div #sctollSectionOnSave></div>
+  <ng-container *ngIf="show">
+    <div class="loan-registration">
+      <app-common-form [action]="action" (loanRegistered)="onLoanAdded($event)" (loanUpdated)="onLoanUpdate($event)">
+      </app-common-form>
+    </div>
+  </ng-container>
+
+  <div id="tabeleTarget">
+    <ng-container *ngIf="showEdit">
+      <div class="loan-registration">
+        <button mat-raised-button (click)="toggleAdd('closeEdit')" id="btEditClose">
+          <mat-icon *ngIf="showBtn" style="color: brown;">clear</mat-icon>
+        </button>
+        <app-common-form [loanDetail]="loan" (loanRegistered)="onLoanAdded($event)"
+          (loanUpdated)="onLoanUpdate($event)"></app-common-form>
+      </div>
+    </ng-container>
+
+    <table-painter [data]="tableData" [totalRecordsCount]="totalRecords" [totalIteamsPerPageCount]="totalItemsPerPage"
+      (loanPageChanged)="onPageChanged($event)" (loanFiltered)="onLoanFiltered($event)"
+      [filterPageType]="filterTypeValue"></table-painter>
+  </div>
+</div>

@@ -1,0 +1,53 @@
+<div class="component data component-card">
+  <mat-card *ngIf="dataSource?.filteredData" class="mat-card">
+    <div #sctollToLeft></div>
+
+    <div class="table-container">
+      <mat-table [dataSource]="dataSource" matSort class="table">
+        <ng-container *ngFor="let displayedColumn of displayedColumns; let i = index">
+
+          <ng-container class="container" matColumnDef="{{ displayedColumn }}" *ngIf="displayedColumn != 'actions'">
+            <mat-header-cell fxFlex="10px" class="header-cell" *matHeaderCellDef>
+              <span mat-sort-header class="sort-header">{{ getTitle(displayedColumn) }}</span>
+
+
+            </mat-header-cell>
+
+
+            <ng-container *ngIf="showcellsvalue">
+              <mat-cell class="cell" *matCellDef="let data">
+                {{data[displayedColumn]}}
+              </mat-cell>
+            </ng-container>
+
+          </ng-container>
+        </ng-container>
+
+
+        <ng-container class="container" matColumnDef="actions" *ngIf="hasActions">
+          <mat-header-cell class="header-cell" *matHeaderCellDef>
+            <span mat-sort-header class="sort-header"></span>
+          </mat-header-cell>
+          <mat-cell class="cell cell-button" *matCellDef="let data">
+            <ng-container *ngFor="let action of data.actions">
+              <button (click)="action.execute()" *ngIf="true" [disabled]="action.isDisabled"
+                matTooltip="{{action.icon}}">
+                <mat-icon aria-hidden="false">{{action.title}}</mat-icon>
+              </button>
+            </ng-container>
+          </mat-cell>
+        </ng-container>
+
+
+        <mat-header-row class="header-row" *matHeaderRowDef="displayedColumns; sticky: true"></mat-header-row>
+
+
+        <mat-row class="row " *matRowDef="let row; columns: displayedColumns | paginate: paginationConfig">
+        </mat-row>
+
+      </mat-table>
+    </div>
+  </mat-card>
+  <pagination-controls *ngIf="displayedColumns && displayedColumns.length > 0 " (pageChange)="pageChanged($event)">
+  </pagination-controls>
+</div>

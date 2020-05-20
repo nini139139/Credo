@@ -1,0 +1,43 @@
+<form [formGroup]="form" id="editForm" class="registration_page" (ngSubmit)="saveForm()">
+    <mat-form-field>
+        <input type="text" matInput placeholder="მომხმარებელი" formControlName="userName" />
+        <mat-error>მომხმარებელი</mat-error>
+    </mat-form-field>
+    <mat-form-field>
+        <input type="password" matInput placeholder="პაროლი" formControlName="password" />
+        <mat-error>პაროლი</mat-error>
+    </mat-form-field>
+    <mat-form-field>
+        <input type="text" matInput placeholder="სახელი" formControlName="name" />
+        <mat-error>სახელი</mat-error>
+    </mat-form-field>
+    <mat-form-field>
+        <input type="text" matInput placeholder="გვარი" formControlName="lastName" />
+        <mat-error>გვარი</mat-error>
+    </mat-form-field>
+    <mat-form-field>
+        <input type="number" matInput placeholder="პირადი ნომერი" formControlName="personalIdNumber" />
+        <mat-error>პირადი ნომერი</mat-error>
+    </mat-form-field>
+    <mat-form-field>
+        <input matInput [matDatepicker]="picker" placeholder="დაბადების თარიღი" formControlName="dateOfBirthday" />
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+        <mat-error>დაწყების თარიღი სავალდებულოა</mat-error>
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label>როლი </mat-label>
+        <select matNativeControl formControlName="roleId">
+            <option class='option'></option>
+            <option class='option' *ngFor='let role of roleTypes' [value]="role.id">
+                {{role.name}}</option>
+        </select>
+        <mat-error>გთხოვთ აირჩიოთ როლი</mat-error>
+    </mat-form-field>
+
+    <div class="btns">
+        <button class="btn btn-primary addBtn" name="save" form="editForm" type="submit" matTooltip="შენახვა">
+            რეგისტრაცია
+        </button>
+    </div>
+</form>

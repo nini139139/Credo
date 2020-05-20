@@ -1,0 +1,205 @@
+form {
+  width: 30%;
+  margin: 0 auto;
+}
+.registration_page {
+  display: flex;
+  justify-content: left;
+  flex-wrap: wrap;
+}
+
+.registration_page mat-form-field {
+  width: 15em;
+  margin: 1em;
+}
+
+h1 {
+  padding-bottom: 20px;
+  text-align: center;
+  font-size: 1.75rem;
+  font-weight: 400;
+}
+
+.mount {
+  display: flex;
+}
+
+.mount mat-form-field {
+  /* width: 100px; */
+  padding: 0 5px;
+}
+
+.btns button {
+  margin: 10px;
+}
+
+/* .test{
+    width: 10px;
+} */
+.center {
+  margin: 0 5%;
+}
+
+.btns {
+  /* display: inline-flex; */
+  text-align: left;
+  width: 100%;
+  display: block;
+}
+
+.btns button {
+  height: 41px;
+}
+
+.btn {
+  margin-right: 10px;
+}
+
+.cancel:hover {
+  cursor: pointer;
+}
+
+.img-container {
+  display: inline-block;
+  width: 75px;
+  height: 75px;
+  position: relative;
+  margin-left: 10px;
+}
+
+.img-container #cross {
+  background: rgba(230, 97, 0, 0.78);
+  position: absolute;
+  color: white;
+  padding: 1px 8px;
+  border-radius: 50px;
+  width: 25px;
+  height: 25px;
+}
+
+.cross-container {
+  width: 54px;
+  text-align: right;
+}
+
+.img-container img {
+  padding: 10px;
+  width: 70px;
+  height: 70px;
+  border: 1px solid lightgrey;
+  margin: 7px 0px 0px 0px;
+}
+
+.img-container button {
+  width: 70px;
+  background: rgba(230, 97, 0, 0.78);
+  border: none;
+  color: #ffffff;
+  font-size: 14px;
+  height: 20px !important;
+  overflow: hidden !important;
+}
+
+textarea {
+  padding: -10px !important;
+}
+
+.addBtn label {
+  margin: 0 !important;
+  cursor: pointer;
+}
+.upload_btn {
+  height: 41px;
+  cursor: pointer;
+}
+
+/* .upload_btn {
+  color: #fff;
+  background-color: #007bff;
+  border-color: #007bff;
+  width: 49px;
+  padding-top: 6px;
+  text-align: center;
+  vertical-align: middle;
+  margin: 0;
+  height: 41px;
+  border: none;
+  border-radius: 5px !important;
+} */
+.attach-list-container table {
+  border-collapse: collapse;
+  width: auto;
+  margin-left: 10px;
+  margin-bottom: 10px;
+}
+
+.attach-list-container th,
+td {
+  text-align: left;
+  padding: 8px;
+}
+
+.attach-list-container th,
+td a {
+  color: #007bff;
+}
+
+.attach-list-container tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+.attach-list-container th {
+  /* background-color: #4CAF50 !important;*/
+  color: black;
+  border-bottom: 1px solid black;
+  max-width: 50px;
+}
+
+.attach-list-container tr {
+  /* background-color: #4CAF50 !important;*/
+  /* color: black;  */
+  border-bottom: 1px solid black;
+  /* max-width: 50px; */
+}
+
+a:hover {
+  cursor: pointer;
+}
+/* responsive */
+
+/* @media screen and (min-width: 320px) {
+    .registration_page {
+        display: grid;
+        grid-template-columns: 1fr;
+    }
+}
+@media screen and (min-width: 860px) {
+    .registration_page {
+        grid-template-columns: repeat(2, 1fr);
+        grid-gap: 0 40px;
+    }
+}
+@media screen and (min-width: 1024px) {
+    .registration_page {
+        grid-template-columns: repeat(3, 1fr);
+        grid-gap: 0 20px;
+    }
+}
+@media screen and (min-width: 1260px) {
+    .registration_page {
+        grid-template-columns: repeat(4, 1fr);
+        grid-gap: 0 40px;
+    }
+} */
+
+@media screen and (max-width: 1370px) {
+  .btns {
+    margin-left: 10px;
+    padding: 5px;
+    height: 36px;
+  }
+}
+
+.attachment {
+  width: 100%;
+}

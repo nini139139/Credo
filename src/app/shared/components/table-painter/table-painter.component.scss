@@ -1,0 +1,161 @@
+p {
+  font-family: Lato;
+}
+
+.data {
+  display: block;
+  max-width: 100%;
+  overflow-x: auto;
+  white-space: nowrap;
+  // width: 85vw;
+  /* // overflow: auto; */
+}
+.table-container {
+  margin-top: 10px;
+  max-height: 700px;
+  overflow: auto;
+}
+mat-checkbox {
+  font-size: 5px;
+}
+.table {
+  /* width: 100vw; */
+  width: 100%;
+  overflow: auto;
+  margin-bottom: 10px;
+  // display: table;
+  border-collapse: collapse;
+  margin: 0px;
+  background-color: rgb(238, 238, 238);
+  .row,
+  .header-row {
+    display: table-row;
+    min-height: 36px !important;
+  }
+
+  select {
+    background: white;
+    padding-top: 0;
+  }
+  span {
+    height: 50px;
+    padding-top: 0;
+    font-size: 12px;
+  }
+}
+
+.cell,
+.header-cell {
+  // white-space: pre-wrap !important; /* CSS3 */
+  // word-wrap: break-word;      /* IE */
+  // word-wrap: initial;
+
+  // visibility: hidden;
+  display: table-cell;
+  padding: 0px 5px;
+  line-break: unset;
+  // width: fit-content;
+  // white-space: nowrap;
+  overflow: auto;
+  vertical-align: top;
+  text-align: left;
+  // word-wrap: break-word !important;
+  // white-space: unset !important;
+  flex: 0 0 75px !important;
+  max-width: 175px;
+  // max-height: 20px;
+  // width: 50px !important;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  word-break: break-word;
+  -ms-hyphens: auto;
+  -webkit-hyphens: auto;
+  hyphens: auto;
+}
+
+.cell {
+  overflow: hidden;
+}
+
+.cell:hover {
+  // cursor: pointer;
+  overflow: auto;
+}
+
+.header-row,
+.header-cell {
+  margin: 0 auto;
+  min-height: 100px !important;
+  text-align: left;
+  vertical-align: middle;
+  align-self: left;
+}
+
+.header-row {
+  position: sticky;
+  top: -0.5px;
+  z-index: 100;
+}
+
+.cell-button {
+  white-space: nowrap !important;
+}
+
+.sort-header {
+  display: flex;
+  align-content: left;
+  text-align: left;
+  justify-content: left;
+  font-size: 12pt;
+}
+
+.header-row input {
+  background-color: white;
+}
+
+.mat-card {
+  min-width: max-content;
+  max-width: max-content;
+  background-color: #80808000;
+  box-shadow: none;
+}
+
+.table {
+  // display: block !important;
+}
+.upload_btn {
+  margin-left: 5px;
+  padding: 5px;
+}
+.upload_btn:hover {
+  cursor: pointer;
+  background-color: #e5eaef;
+}
+mat-icon {
+  font-size: 20px;
+  height: -1px;
+}
+
+mat-select {
+  width: fit-content !important;
+  min-width: 100%;
+}
+
+::ng-deep .mat-form-field-infix {
+  min-width: 75px !important;
+  width: fit-content !important;
+}
+.sort-header {
+  white-space: pre-wrap; /* CSS3 */
+  // word-wrap: break-word;      /* IE */
+}
+::ng-deep mat-select .mat-select-value {
+  width: fit-content;
+  min-width: 2ch;
+  max-width: 25ch;
+}
+
+::ng-deep mat-select .mat-select-placeholder {
+  width: fit-content;
+  min-width: 10ch;
+}

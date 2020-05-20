@@ -1,0 +1,9 @@
+diff a/src/app/routes.ts b/src/app/routes.ts	(rejected hunks)
+@@ -29,7 +29,6 @@
+             { path: 'retrievalDetail/:id', component: RetrievalDetailComponent, resolve: {RetirevalResolver: RetrievalDetailResolver}},
+             { path: 'retrievalDetail/edit', component: RetrievalEditComponent, resolve: { RetrievalEditResolver: RetrievalEditReolver}},
+             { path: 'retrievals', component: RetrivalRegistrationComponent}
+-        
+ 
+         ]
+     },

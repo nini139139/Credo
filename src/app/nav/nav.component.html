@@ -1,0 +1,83 @@
+<mat-toolbar class="navbar navbar-expand-md" *ngIf="!isAdminUrl()">
+  <mat-toolbar-row>
+    <a class="navbar-brand" [routerLink]="['/home']">
+      <h1>CDERO</h1>
+    </a>
+
+    <ul *ngIf="loggedIn()" class="navbar-nav mr-auto">
+    </ul>
+    <div *ngIf="loggedIn()" class="dropdown" dropdown>
+      <a class="dropdown-toggle text-light" dropdownToggle>
+        {{authService.decodedToken.unique_name}}
+      </a>
+
+      <div class="dropdown-menu mt-3" *dropdownMenu>
+        <a class="dropdown-item" (click)="logOut()"><i class="fa fa-sign-out"></i> გამოსვლა</a>
+      </div>
+    </div>
+  </mat-toolbar-row>
+</mat-toolbar>
+<mat-sidenav-container *ngIf="!isAdminUrl()">
+  <mat-sidenav #sidenav mode="side" [(opened)]="opened" (opened)="events.push('open!')" (closed)="events.push('close!')"
+    *ngIf="loggedIn()">
+    <mat-nav-list>
+      <a mat-list-item [routerLink]="['/loans']" (click)="selected='სესხები'"
+        [routerLinkActive]="['active']">სესხები</a>
+    </mat-nav-list>
+  </mat-sidenav>
+
+
+  <mat-sidenav-content>
+    <div style="min-height: 88vh;">
+      <router-outlet></router-outlet>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>
+
+
+<mat-toolbar color="primary" class="navbar navbar-expand-md" *ngIf="isAdminUrl()">
+  <mat-toolbar-row>
+    <a class="navbar-brand" [routerLink]="['admin/home']">
+      <h1>Credo</h1>
+    </a>
+
+    <ul *ngIf="isAdminLoggedIn()" class="navbar-nav mr-auto">
+    </ul>
+    <div *ngIf="isAdminLoggedIn()" class="dropdown" dropdown>
+      <a class="dropdown-toggle text-light" dropdownToggle>
+        {{authService.decodedAdminToken.unique_name}}
+      </a>
+
+      <div class="dropdown-menu mt-3" *dropdownMenu>
+        <a class="dropdown-item" (click)="logOut()"><i class="fa fa-sign-out"></i> გამოსვლა</a>
+      </div>
+    </div>
+  </mat-toolbar-row>
+</mat-toolbar>
+<mat-sidenav-container class="nav" *ngIf="isAdminUrl()">
+  <mat-sidenav #sidenav mode="side" [(opened)]="opened" (opened)="events.push('open!')" (closed)="events.push('close!')"
+    *ngIf="isAdminLoggedIn()">
+    <mat-nav-list>
+      <a mat-list-item [routerLink]="['/admin/loans']" (click)="selected='სესხები'"
+        [routerLinkActive]="['active']">სესხები</a>
+    </mat-nav-list>
+  </mat-sidenav>
+
+
+  <mat-sidenav-content>
+    <div style="min-height: 88vh;">
+      <router-outlet></router-outlet>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>
+
+
+<div>
+  <footer _ngcontent-mwi-c497="" class="docs-footer">
+    <div _ngcontent-mwi-c497="" class="docs-footer-version">
+
+      <span _ngcontent-mwi-c497="" class="version">© Credo – 2020 – by Nino Makharadze</span>
+    </div>
+
+  </footer>
+</div>

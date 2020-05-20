@@ -1,0 +1,3 @@
+<app-loan-list-detail [loanChild]="loans" [totalRecords]="totalRecords" [totalItemsPerPage]="totalItemsPerPage"
+    (loanPageChanged)="onPageChanged($event)" (loanFiltered)="onLoanFiltered($event)" (loanAdded)="onLoanAdded($event)"
+    (loanUpdated)="onLoanUpdate($event)"></app-loan-list-detail>
